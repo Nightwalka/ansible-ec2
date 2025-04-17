@@ -120,16 +120,16 @@ ini
 Copy
 Edit
 [all]
-3.83.102.198
-54.84.220.118
-18.208.169.135
+3.83.102.xxx
+54.84.220.xxx
+18.208.xxxxx
 
 [redhat]
-3.83.102.198
+3.83.102.xx
 
 [ubuntu]
-54.84.220.118
-18.208.169.135
+54.84.220.xx
+18.208.169.xxx
 Then copy your SSH key to each instance:
 
 bash
