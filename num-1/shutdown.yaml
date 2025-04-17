@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+
+  - name: shutdown the ec2 instance
+    ansible.builtin.command: /sbin/shutdown -t network_interfaces
+    when:
+      ansible_facts['os_family'] == "Debian"

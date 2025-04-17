@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+  - name: start an instance with a public IP address
+    amazon.aws.ec2_instance:
+      name: "{{ item.name }}"
+      key_name: "rons-ec2-key"
+      # vpc_subnet_id: subnet-5ca1ab1e
+      instance_type: t2.micro
+      security_group: default
+      region: us-east-1
+      aws_secret_key: "{{ ec2_secret_key }}"
+      aws_access_key: "{{ ec2_access_key }}"
+      network_interfaces:
+        - assign_public_ip: true
+      image_id: "{{ item.image}}"
+      tags:
+        Environment: "{{item.name}}"
+    loop:
+      - {image: "ami-084568db4383264d4", name: "managed-01"}
+      - {image: "ami-084568db4383264d4", name: "managed-02"}
